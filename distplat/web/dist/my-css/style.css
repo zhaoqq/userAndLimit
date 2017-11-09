@@ -1,0 +1,13 @@
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    height: 50px;
+}
+.navbar-nav>.user-menu>.dropdown-menu {
+    width: 200px;
+}
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header>p {
+    font-size: 14px;
+    margin-top: 7px;
+}
+.checkbox-inline label{
+    font-weight: 400; !important;
+}

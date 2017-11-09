@@ -1,0 +1,28 @@
+div.tree-multiselect div.title {
+    background:white;
+    color: #3c8dbc;
+    padding: 2px;
+    border-color: #367fa9;
+}
+input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    border: none;
+    cursor: pointer;
+}
+div.tree-multiselect span.remove-selected, div.tree-multiselect span.description {
+    background:  #3c8dbc;
+    border-radius: 2px;
+    color: white;
+    margin-right: 5px;
+    padding: 0 3px;
+}
+div.tree-multiselect span.section-name {
+    float: right;
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.5);
+}

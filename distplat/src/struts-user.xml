@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="user" namespace="/" extends="struts-default">
+        <action name="doRegister" class="uAction" method="register">
+            <result name="error">/JSP/register.jsp</result>
+            <result name="success" type="redirect">/JSP/success.jsp</result>
+         </action>
+        <action name="doLogin" class="uAction" method="login">
+            <result name="error">/JSP/login.jsp</result>
+            <result name="success" type="redirect">/JSP/managerIndex.jsp</result>
+        </action>
+        <action name="doShowAll" class="uAction" method="showAll">
+            <result name ="success">/JSP/user/userManage.jsp</result>
+        </action>
+        <action name="doDeleteUser" class="uAction" method="deleteUser">
+            <!--<result name ="success" type="redirect">/JSP/user/userManage.jsp</result>-->
+            <result name="success" type="redirect">doShowAll.action</result>
+        </action>
+        <action name="doUpdateUser" class="uAction" method="updateUser">
+            <result name="success" type="chain">doShowAll</result>
+            <result name="error"  type="chain">doShowAll</result>
+        </action>
+        <action name="doQueryById" class="uAction" method="queryById">
+            <result name="success">/JSP/user/userInfoEdit.jsp</result>
+        </action>
+
+        <action name="doLogout" class="uAction" method="logout">
+            <result name="success">/JSP/success.jsp</result>
+        </action>
+
+        <action name="doGrantRoles" class="uAction" method="grantRole">
+            <result name="success">/JSP/user/setUserRole.jsp</result>
+        </action>
+
+        <action name="doAllotRole" class="uAction" method="allotRole">
+            <result name="success" type="chain">doShowAll</result>
+            <result name="error">doShowAllLimit.action</result>
+        </action>
+    </package>
+</struts>

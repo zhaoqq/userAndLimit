@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="role" namespace="/" extends="struts-default">
+        <action name="doAddRole" class="rAction" method="add">
+            <result name="error">/JSP/user/addNewRole.jsp</result>
+            <result name="success" type="redirect">doShowAllRole.action</result>
+        </action>
+
+        <action name="doShowAllRole" class="rAction" method="showAll">
+            <result name="error">/JSP/user/roleManage.jsp</result>
+            <result name="success">/JSP/user/roleManage.jsp</result>
+        </action>
+
+        <action name="doQueryRoleById" class="rAction" method="queryRoleById">
+            <result name="error">/JSP/user/roleManage.jsp</result>
+            <result name="success">/JSP/user/roleInfoEdit.jsp</result>
+        </action>
+
+        <action name="doUpdateRole" class="rAction" method="updateRole">
+            <result name="success" type="chain">doShowAllRole</result>
+            <result name="error" type="redirect">doShowAllRole.action</result>
+        </action>
+
+        <action name="doDeleteRole" class="rAction" method="deleteRole">
+            <result name="success" type="redirect">doShowAllRole.action</result>
+            <result name="error">doShowAllRole.action</result>
+        </action>
+
+        <action name="doShowAllRoleLimits" class="rAction" method="showAllRoleLimits">
+            <result name="success">/JSP/user/setRoleLimit.jsp</result>
+            <result name="error">doShowAllRole.action</result>
+        </action>
+
+        <action name="doAllotLimits" class="rAction" method="AllotLimits">
+            <result name="success" type="chain">doShowAllRole</result>
+            <result name="error">doShowAllRole.action</result>
+        </action>
+
+
+
+    </package>
+</struts>

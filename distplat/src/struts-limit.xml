@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="limit" namespace="/" extends="struts-default">
+        <action name="doAddLimit" class="lAction" method="addLimit">
+            <result name="error">/JSP/user/addNewLimit.jsp</result>
+            <result name="success" type="redirect">doShowAllLimit.action</result>
+        </action>
+
+        <action name="doShowAllLimit" class="lAction" method="showAll">
+            <result name="error">/JSP/user/limitsManage.jsp</result>
+            <result name="success">/JSP/user/limitsManage.jsp</result>
+        </action>
+
+        <action name="doQueryLimitById" class="lAction" method="queryLimitById">
+            <result name="error" type="chain">doShowAllLimit</result>
+            <result name="success">/JSP/user/limitInfoEdit.jsp</result>
+        </action>
+
+        <action name="doUpdateLimit" class="lAction" method="updateLimit">
+            <result name="success" type="chain">doShowAllLimit</result>
+            <result name="error" type="redirect">doShowAllLimit.action</result>
+        </action>
+
+        <action name="doDeleteLimit" class="lAction" method="deleteLimit">
+            <result name="success" type="redirect">doShowAllLimit.action</result>
+            <result name="error">doShowAllLimit.action</result>
+        </action>
+
+        <action name="doShowAllAlgoData" class="lAction" method="showAllAlgoData">
+            <result name="success">/JSP/user/addNewLimit.jsp</result>
+        </action>
+    </package>
+</struts>
